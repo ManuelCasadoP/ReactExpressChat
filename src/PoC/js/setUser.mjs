@@ -1,27 +1,5 @@
-import setUser from "./js/setUser.mjs";
-
-const host = "https://web-develop-react-express-chat.herokuapp.com"
-const htmlGetUsers = document.querySelector("#getUsers");
-const htmlUpdateButton = document.querySelector("#updateButton");
 const sendButton = document.querySelector("#sendButton");
 
-
-async function get(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-}
-
-async function getUsers () {
-    const users = await get(host+"/users/");
-    htmlGetUsers.innerText = JSON.stringify(users);
-};
-
-function updateButtonClickHandler() {
-    getUsers();
-}
-
-/*
 function getUserDataButtonHandler(){
     const urlLogin="https://web-develop-react-express-chat.herokuapp.com/login/"
     const user = document.querySelector("#user").value;
@@ -50,6 +28,7 @@ async function setUserPost(urlLogin, userData) {
     console.log(responseData);
     return responseData;
 }
-*/
-htmlUpdateButton.addEventListener("click", updateButtonClickHandler);
-//sendButton.addEventListener("click", getUserDataButtonHandler);
+
+sendButton.addEventListener("click", getUserDataButtonHandler);
+
+export default setUserPost
