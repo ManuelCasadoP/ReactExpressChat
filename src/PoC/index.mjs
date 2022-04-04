@@ -1,4 +1,3 @@
-import setUser from "./js/setUser.mjs";
 
 const host = "https://web-develop-react-express-chat.herokuapp.com"
 const htmlGetUsers = document.querySelector("#getUsers");
@@ -21,7 +20,6 @@ function updateButtonClickHandler() {
     getUsers();
 }
 
-/*
 function getUserDataButtonHandler(){
     const urlLogin="https://web-develop-react-express-chat.herokuapp.com/login/"
     const user = document.querySelector("#user").value;
@@ -50,6 +48,6 @@ async function setUserPost(urlLogin, userData) {
     console.log(responseData);
     return responseData;
 }
-*/
+
 htmlUpdateButton.addEventListener("click", updateButtonClickHandler);
-//sendButton.addEventListener("click", getUserDataButtonHandler);
+sendButton.addEventListener("click", getUserDataButtonHandler);
