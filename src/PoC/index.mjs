@@ -4,12 +4,14 @@ const htmlUpdateButton = document.querySelector("#getUsersButton");
 const setUserButton = document.querySelector("#setUserButton");
 const sendMessageButton = document.querySelector("#sendMessageButton");
 const getMessageButton = document.querySelector("#getMessagesButton");
+const htmlGetMessages = document.querySelector("#getMessages");
 
 let id = 0;
 
 htmlUpdateButton.addEventListener("click", updateButtonClickHandler);
 setUserButton.addEventListener("click", getUserDataButtonHandler);
 sendMessageButton.addEventListener("click", sendMessageButtonHandler);
+getMessageButton.addEventListener("click", getMessageButtonHandler);
 
 async function get(url) {
     const response = await fetch(url);
@@ -31,8 +33,6 @@ function getUserDataButtonHandler(){
     const user = document.querySelector("#user").value;
     const pass = document.querySelector("#pass").value;
     let userData=JSON.stringify({userName: user, password: pass});
-    //document.querySelector("#user").value ="";
-    //document.querySelector("#pass").value ="";
     console.log("Enviando datos de alta de usuario...")
     console.log(user + " , " +  pass);
     setUserPost(urlLogin, userData);
@@ -62,7 +62,7 @@ function sendMessageButtonHandler(){
     const pass = document.querySelector("#pass").value;
     const message = JSON.stringify({"content": document.querySelector("#message").value});
     const token = authToken(id, pass);
-    console.log(user);
+    console.log(id);
     console.log(pass);
     console.log(token);
     console.log(urlLogin);
@@ -76,7 +76,6 @@ function authToken(id, secret) {
     const authToken = `${id}:${secret}`;
     // Y se codifican en Base64
     const base64token = btoa(authToken);
-    console.log(base64token);
     return `Basic ${base64token}`;
 }
 
@@ -114,4 +113,25 @@ function authToken(id, secret) {
     const data = await response.json();
     return data;
 }
+
+async function get(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
+
+async function getMessages () {
+    const messages = await get(host+"/messages/");
+    htmlGetMessages.innerText = JSON.stringify(messages);
+};
+
+function getMessageButtonHandler(){
+    const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
+    const pass = document.querySelector("#pass").value;
+    const token = authToken(id, pass);
+    authGet(urlLogin, token);
+    getMessages()
+    console.log("Leyendo Mensajes....");
+}
+
 
