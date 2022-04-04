@@ -114,24 +114,10 @@ function authToken(id, secret) {
     return data;
 }
 
-async function get(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-}
-
-async function getMessages () {
-    const messages = await get(host+"/messages/");
-    htmlGetMessages.innerText = JSON.stringify(messages);
-};
-
 function getMessageButtonHandler(){
     const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
     const pass = document.querySelector("#pass").value;
     const token = authToken(id, pass);
-    authGet(urlLogin, token);
-    getMessages()
+    authGet(urlLogin, token).then(data => htmlGetMessages.innerHTML = JSON.stringify(data));
     console.log("Leyendo Mensajes....");
 }
-
-
