@@ -15,14 +15,18 @@
         <input type="text" id="user" name="user"><br><br>
         <label for="pass">Password:</label>
         <input type="password" id="pass" name="pass"><br><br>
-        <button type="button" id="sendButton">Enviar</button>
+        <button type="button" id="setUserButton">Enviar</button>
     
     <br><br>
     <h2>Respuesta GET /users/: <span id="getUsers"></span></h2>
-    <button id="updateButton">Update</button><br><br>
+    <button id="getUsersButton">Update</button><br><br>
 
     <h1>Enviar Mensaje</h1><br>
-    <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea><br>
-    <button type="button" id="sendButton">Enviar</button>
+    <textarea name="textarea" id="message" cols="30" rows="10"></textarea><br>
+    <button type="button" id="sendMessageButton">Enviar</button>
+
+    <br><br>
+    <h2>Respuesta GET /messages/: <span id="getMessages"></span></h2>
+    <button id="getMessagesButton">Update</button><br><br>
 </body>
 </html>
