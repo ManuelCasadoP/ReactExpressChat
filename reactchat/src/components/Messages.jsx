@@ -43,6 +43,7 @@ const Messages = ({id, pass})=>{
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
         const token = authToken(id, pass);
         authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
+        console.log(htmlGetMessages);
         console.log("Leyendo Mensajes....");
     }
     
@@ -50,7 +51,7 @@ const Messages = ({id, pass})=>{
     return (
 
         <div className="container">
-            <h2>Respuesta GET /users/: </h2>
+            <h2>Respuesta GET /Messages/: </h2>
             <p>{htmlGetMessages}</p>
         </div>
 

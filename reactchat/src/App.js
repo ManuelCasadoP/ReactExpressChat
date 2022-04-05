@@ -10,7 +10,6 @@ function App() {
     <>
       <Login />
       <Messages id={1649153148856} pass={123456}/>
-    
     </>
   
   );
