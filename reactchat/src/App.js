@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <Login />
-      <Messages id={1649153148856} pass={123456}/>
-      <SendMessage id={1649153148856} pass={123456}/>
+      <Messages id={1649185257924} pass={123456}/>
+      <SendMessage id={1649185257924} pass={123456}/>
     </>
   
   );

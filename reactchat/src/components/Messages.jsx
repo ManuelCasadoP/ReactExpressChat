@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const Messages = ({id, pass})=>{
+
+    const [ messages, setMessages ] = useState ("");
 
     let htmlGetMessages = ("");
 
@@ -43,6 +45,7 @@ const Messages = ({id, pass})=>{
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
         const token = authToken(id, pass);
         authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
+        setMessages(htmlGetMessages); 
         console.log(htmlGetMessages);
         console.log("Leyendo Mensajes....");
     }
@@ -52,7 +55,8 @@ const Messages = ({id, pass})=>{
 
         <div className="container">
             <h2>Respuesta GET /Messages/: </h2>
-            <p>{htmlGetMessages}</p>
+            <p>{messages}</p>
+            
         </div>
 
     )

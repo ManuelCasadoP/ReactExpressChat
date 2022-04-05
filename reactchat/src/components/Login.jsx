@@ -6,6 +6,7 @@ const Login = ()=>{
 
     const [ user, keepUser ] = useState("");
     const [ pass, keepPass ] = useState("");
+    // const [ id, setId ] = useState ("");
 
     function getUserDataButtonHandler(){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/login/"
@@ -38,7 +39,7 @@ const Login = ()=>{
         );
         const responseData = await response.json();
         console.log(responseData);
-        //id = responseData;
+        //setId = responseData;
         return responseData;
     }
 
