@@ -55,8 +55,7 @@ const Messages = ({id, pass})=>{
 
         <div className="container">
             <h2>Respuesta GET /Messages/: </h2>
-            <p>{messages}</p>
-            
+            <textarea className="input2" value={messages} cols="60" rows="10"></textarea>
         </div>
 
     )

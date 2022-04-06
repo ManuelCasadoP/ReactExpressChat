@@ -1,4 +1,3 @@
-import './Login.css'
 import { useState } from 'react';
 
 
@@ -47,11 +46,11 @@ const Login = ()=>{
 
         <div className="container">
             <h1>Alta Usuario</h1>
-            <label for="user">Usuario:</label><br></br>
-            <input type="text" id="user" name="user" onChange={setUser}></input><br></br>
-            <label for="pass">Password:</label><br></br>
-            <input type="password" id="pass" name="pass" onChange={setPass}></input><br></br><br></br>
-            <button type="button" onClick={getUserDataButtonHandler}>Enviar</button>
+            <label for="user">Usuario:</label>
+            <input type="text" className='input' name="user" onChange={setUser}></input>
+            <label for="pass">Password:</label>
+            <input type="password" className='input' name="pass" onChange={setPass}></input><br></br>
+            <button type="button" className='button' onClick={getUserDataButtonHandler}>Enviar</button>
         </div>
 
     )
