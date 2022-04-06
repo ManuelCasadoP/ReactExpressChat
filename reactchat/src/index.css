@@ -31,23 +31,24 @@ code {
 .input {
   border-radius: 8px;
   font-size: 1.5em;
-  width: 70%;
+  width: 50%;
 }
 
-.input2 {
+.textarea {
+  margin-bottom: 15px;
   border-radius: 8px;
-  width: 90%;
+  width: 70%;
 }
 
 button {
   border-radius: 8px ;
   margin-bottom: 20px;
-  width: 40%;
+  width: 20%;
   height: 2rem;
   font-size: medium;
   font-weight: bold;
 }
 
 h1,h2 {
-  margin-bottom: 0px;
+  margin: 2px;
 }

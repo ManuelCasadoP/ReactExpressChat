@@ -46,9 +46,9 @@ const Login = ()=>{
 
         <div className="container">
             <h1>Alta Usuario</h1>
-            <label for="user">Usuario:</label>
+            <label htmlFor="user">Usuario:</label>
             <input type="text" className='input' name="user" onChange={setUser}></input>
-            <label for="pass">Password:</label>
+            <label htmlFor="pass">Password:</label>
             <input type="password" className='input' name="pass" onChange={setPass}></input><br></br>
             <button type="button" className='button' onClick={getUserDataButtonHandler}>Enviar</button>
         </div>
