@@ -1,31 +1,32 @@
 import { useState, useEffect } from 'react';
 
 
-const Login = ()=>{
+const Login = ({sendId, sendPass})=>{
 
     const [ user, keepUser ] = useState("");
     const [ pass, keepPass ] = useState("");
     const [ id, setId ] = useState ("");
 
+    /* Función que actua al pulsa el boton enviar del formulario, 
+    y genera los datos formateados para enviar a la función que genera el id */ 
     function getUserDataButtonHandler(){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/login/"
         let userData=JSON.stringify({userName: user, password: pass});
         console.log("Enviando datos de alta de usuario...")
-        //console.log(user + " , " +  pass);
         setUserPost(urlLogin, userData);
-        //keepUser("");
-        //keepPass("");
    }
 
+    // Capturamos el usuario introducido en el input
     function setUser(event){
         keepUser(event.target.value);
     }
 
+    // Capturamos la password introducida en el input
     function setPass(event){
         keepPass(event.target.value);
     }
     
-
+    // Función que realiza la petición al Backend con los datos de parametros para devolver un id.
     async function setUserPost(urlLogin, userData) {
         const response = await fetch(
             urlLogin,
@@ -38,17 +39,19 @@ const Login = ()=>{
             }
         );
         const responseData = await response.json();
-        //console.log(responseData);
         setId(responseData);
+        sendId(responseData);
+        sendPass(pass);
     }
     
+    // Hook que borra los datos del formulario cuando actualiza el id.
     useEffect(
         ()=>{
           if (id === ""){ }
           else {
-                console.log(`user: ${user}`);
-                console.log(`password: ${pass}`);
-                console.log(`id: ${id}`);
+                //console.log(`user: ${user}`);
+                //console.log(`password: ${pass}`);
+                //console.log(`id: ${id}`);
                 keepUser("");
                 keepPass("");
         }}, [id]

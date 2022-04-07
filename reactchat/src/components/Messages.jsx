@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-
 const Messages = ({id, pass})=>{
 
     const [ messages, setMessages ] = useState ("");
 
-    let htmlGetMessages = ("");
+    let htmlGetMessages=("");
 
+    // Función que genera un token al proporcionarle un id y una password de usuario creado.
     function authToken(id, secret) {
         // En autenticación Basic, usuario y contraseña se separan con ':'
         const authToken = `${id}:${secret}`;
@@ -31,26 +31,29 @@ const Messages = ({id, pass})=>{
         return data;
     }
 
+    /* Hook que llama a la función setInterval para que cada 10 segundos_
+     ejecute la función getMessageHandler para leer los mensajes */
     useEffect(() => {
+
         setInterval(() => {
-          //Leer mensajes cada 30 segundos.
+
+          //Leer mensajes cada 10 segundos.
           
           getMessageHandler();
 
         }, 10000);
       }, []);
-
-      
+    
+    // Función que genera un token para leer los mensajes con autenticación.  
     function getMessageHandler(){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
         const token = authToken(id, pass);
         authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
         setMessages(htmlGetMessages); 
-        console.log(htmlGetMessages);
         console.log("Leyendo Mensajes....");
+        console.log(htmlGetMessages);
     }
     
-
     return (
 
         <div className="container">

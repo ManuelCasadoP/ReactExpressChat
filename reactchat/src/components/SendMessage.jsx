@@ -8,13 +8,13 @@ const SendMessages=({id, pass})=>{
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/message/"
         const message = JSON.stringify({"content": sendMessage});
         const token = authToken(id, pass);
-        console.log(id);
-        console.log(pass);
-        console.log(token);
-        console.log(urlLogin);
-        console.log(message);
+        //console.log(id);
+        //console.log(pass);
+        //console.log(token);
+        //console.log(urlLogin);
+        //console.log(message);
         authPost(urlLogin, token, message);
-        console.log("Enviando Mensaje....");
+        
         setSendMessage("");
     }
 
