@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Messages = ({id, pass})=>{
 
     const [ messages, setMessages ] = useState ("");
+    const interval = useRef(0);
 
     let htmlGetMessages=("");
 
@@ -35,17 +36,19 @@ const Messages = ({id, pass})=>{
      ejecute la función getMessageHandler para leer los mensajes */
     useEffect(() => {
 
-        setInterval(() => {
+        if ( interval.current !== 0 ) clearInterval(interval.current)
+
+        interval.current = setInterval(() => {
 
           //Leer mensajes cada 10 segundos.
           
-          getMessageHandler();
+          getMessageHandler(id, pass);
 
         }, 10000);
-      }, []);
+      }, [id, pass]);
     
     // Función que genera un token para leer los mensajes con autenticación.  
-    function getMessageHandler(){
+    function getMessageHandler(id, pass){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
         const token = authToken(id, pass);
         authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
