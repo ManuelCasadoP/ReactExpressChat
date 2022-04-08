@@ -52,6 +52,7 @@ const Messages = ({id, pass})=>{
         setMessages(htmlGetMessages); 
         console.log("Leyendo Mensajes....");
         console.log(htmlGetMessages);
+        console.log(token);
     }
     
     return (

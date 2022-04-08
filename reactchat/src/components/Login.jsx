@@ -12,7 +12,8 @@ const Login = ({sendId, sendPass})=>{
     function getUserDataButtonHandler(){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/login/"
         let userData=JSON.stringify({userName: user, password: pass});
-        console.log("Enviando datos de alta de usuario...")
+        console.log("Enviando datos de alta de usuario...");
+        console.log(user + " , " +  pass);
         setUserPost(urlLogin, userData);
    }
 
@@ -49,9 +50,9 @@ const Login = ({sendId, sendPass})=>{
         ()=>{
           if (id === ""){ }
           else {
-                //console.log(`user: ${user}`);
-                //console.log(`password: ${pass}`);
-                //console.log(`id: ${id}`);
+                console.log(`user: ${user}`);
+                console.log(`password: ${pass}`);
+                console.log(`id: ${id}`);
                 keepUser("");
                 keepPass("");
         }}, [id]
