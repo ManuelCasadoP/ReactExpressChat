@@ -3,9 +3,11 @@ import { useEffect, useRef, useState } from "react";
 const Messages = ({id, pass})=>{
 
     const [ messages, setMessages ] = useState ("");
+    //const [ users, getUsers] = useState ("");
     const interval = useRef(0);
 
     let htmlGetMessages=("");
+    let usersList=("");
 
     // Función que genera un token al proporcionarle un id y una password de usuario creado.
     function authToken(id, secret) {
@@ -32,6 +34,22 @@ const Messages = ({id, pass})=>{
         return data;
     }
 
+    /**
+     * GET users sin autenticación
+     */
+     async function noAuthGetUsers(url) {
+        const response = await fetch(
+            url,
+            { 
+                headers: {
+                    //Authorization: token
+                }
+            }
+        );
+        const data = await response.json();
+        return data;
+    }
+
     /* Hook que llama a la función setInterval para que cada 10 segundos_
      ejecute la función getMessageHandler para leer los mensajes */
     useEffect(() => {
@@ -45,23 +63,34 @@ const Messages = ({id, pass})=>{
           getMessageHandler(id, pass);
 
         }, 10000);
-      }, [id, pass]);
+      }, [id, pass,]);
     
     // Función que genera un token para leer los mensajes con autenticación.  
     function getMessageHandler(id, pass){
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
+        const urlLogin2="https://web-develop-react-express-chat.herokuapp.com/users/"
         const token = authToken(id, pass);
-        authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
+        authGet(urlLogin, token).then(data => { 
+            htmlGetMessages = data 
 
-        /*
-        for (let i = 0; i < htmlGetMessages.length; i++) {
+                noAuthGetUsers(urlLogin2).then(data =>{ 
+                    usersList = data 
 
-            htmlGetMessages[i].time = new Date(htmlGetMessages[i].time).toLocaleString();
-
-        }
-        */
-
-        setMessages(htmlGetMessages); 
+                    for (let i = 0; i < htmlGetMessages.length; i++) {
+                        htmlGetMessages[i].time = new Date(htmlGetMessages[i].time).toLocaleString();
+                    }
+    
+                    
+                    for (let i = 0; i < usersList.length; i++) {
+                        let user = usersList.find(item=>item.id === htmlGetMessages[i].source);
+                        htmlGetMessages[i].source = user.name;
+                        //break;
+                    }   
+    
+                }); 
+        }); 
+        
+        setMessages(JSON.stringify(htmlGetMessages)); 
         console.log("Leyendo Mensajes....");
         console.log(htmlGetMessages);
         console.log(token);
