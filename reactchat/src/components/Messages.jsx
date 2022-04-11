@@ -52,6 +52,15 @@ const Messages = ({id, pass})=>{
         const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
         const token = authToken(id, pass);
         authGet(urlLogin, token).then(data => htmlGetMessages = JSON.stringify(data));
+
+        /*
+        for (let i = 0; i < htmlGetMessages.length; i++) {
+
+            htmlGetMessages[i].time = new Date(htmlGetMessages[i].time).toLocaleString();
+
+        }
+        */
+
         setMessages(htmlGetMessages); 
         console.log("Leyendo Mensajes....");
         console.log(htmlGetMessages);
