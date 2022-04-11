@@ -81,7 +81,7 @@ const Messages = ({id, pass})=>{
                     }
     
                     
-                    for (let i = 0; i < usersList.length; i++) {
+                    for (let i = 0; i < htmlGetMessages.length; i++) {
                         let user = usersList.find(item=>item.id === htmlGetMessages[i].source);
                         htmlGetMessages[i].source = user.name;
                         //break;
