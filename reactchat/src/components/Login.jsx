@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-const Login = ({sendId, sendPass})=>{
+const Login = ({sendId, sendPass, setLogin})=>{
 
     const [ user, keepUser ] = useState("");
     const [ pass, keepPass ] = useState("");
@@ -43,6 +43,7 @@ const Login = ({sendId, sendPass})=>{
         setId(responseData);
         sendId(responseData);
         sendPass(pass);
+        setLogin(false);
     }
     
     // Hook que borra los datos del formulario cuando actualiza el id.

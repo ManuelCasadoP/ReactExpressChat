@@ -9,14 +9,30 @@ function App() {
 
     const [readId, setId] = useState("");
     const [readPass, setPass] = useState("");
+    const [login, setLogin ] = useState(true);
     
   return (
     <>
-      <Login sendId={setId} sendPass={setPass}/>
-      <Messages id={readId} pass={readPass}/>
-      <SendMessage id={readId} pass={readPass}/>
+      { login ? 
+      (     <Login 
+                sendId={setId} 
+                sendPass={setPass} 
+                setLogin={setLogin} 
+            />
+      ) : (
+        
+        <>
+            <Messages 
+                id={readId} 
+                pass={readPass}/>
+
+            <SendMessage 
+                id={readId} 
+                pass={readPass}/>  
+        </>
+      )
+      }
     </>
-  
   );
 }
 
