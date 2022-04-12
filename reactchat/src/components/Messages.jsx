@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import SendMessages from "./SendMessage";
 
 const Messages = ({id, pass})=>{
 
@@ -101,6 +102,8 @@ const Messages = ({id, pass})=>{
         <div className="container">
             <h1>Respuesta GET /Messages/:</h1>
             <textarea className="textarea" value={messages} cols="60" rows="10" disabled></textarea>
+            <br />
+            <SendMessages id={id} pass={pass}/>
         </div>
 
     )

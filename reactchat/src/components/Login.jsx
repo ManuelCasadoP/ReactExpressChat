@@ -56,7 +56,7 @@ const Login = ({sendId, sendPass, setLogin})=>{
                 console.log(`id: ${id}`);
                 keepUser("");
                 keepPass("");
-        }}, [id]
+        }}, [id, pass, user]
       )
 
     return (
