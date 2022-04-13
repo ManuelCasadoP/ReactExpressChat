@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+
 const SendMessages=({id, pass})=>{
 
     const [ sendMessage, setSendMessage ] = useState ("");
@@ -55,7 +57,8 @@ const SendMessages=({id, pass})=>{
 
         <div className="container">
             <h1>Enviar Mensaje</h1>
-            <textarea className="textarea" cols="60" rows="10" onChange={getMessage} value={sendMessage}></textarea>
+            <input type="text" className="inputMessage" onChange={getMessage} value={sendMessage} />
+            {/*<textarea className="textarea" cols="60" rows="10" onChange={getMessage} value={sendMessage}></textarea>*/}
             <button type="button" className="button" onClick={sendMessageButtonHandler}>Enviar</button>
         </div>
 

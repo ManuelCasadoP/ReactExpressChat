@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
+
 const Login = ({sendId, sendPass, setLogin})=>{
 
     const [ user, keepUser ] = useState("");
@@ -63,9 +64,9 @@ const Login = ({sendId, sendPass, setLogin})=>{
 
         <div className="container">
             <h1>Alta Usuario</h1>
-            <label htmlFor="user">Usuario:</label>
+            <label htmlFor="user" className='label'>Usuario:</label>
             <input type="text" className='input' name="user" value={user} onChange={setUser}></input>
-            <label htmlFor="pass">Password:</label>
+            <label htmlFor="pass" className='label'>Password:</label>
             <input type="password" className='input' name="pass" value={pass} onChange={setPass}></input><br></br>
             <button type="button" className='button' onClick={getUserDataButtonHandler}>Enviar</button>
         </div>
