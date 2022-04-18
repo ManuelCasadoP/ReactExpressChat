@@ -55,7 +55,7 @@ const SendMessages=({id, pass})=>{
 
     return (
 
-        <div className="container">
+        <div className="containerMessages">
             <h1>Enviar Mensaje</h1>
             <input type="text" className="inputMessage" onChange={getMessage} value={sendMessage} />
             {/*<textarea className="textarea" cols="60" rows="10" onChange={getMessage} value={sendMessage}></textarea>*/}

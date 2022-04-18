@@ -62,7 +62,7 @@ const Login = ({sendId, sendPass, setLogin})=>{
 
     return (
 
-        <div className="container">
+        <div className="containerLogin">
             <h1>Alta Usuario</h1>
             <label htmlFor="user" className='label'>Usuario:</label>
             <input type="text" className='input' name="user" value={user} onChange={setUser}></input>

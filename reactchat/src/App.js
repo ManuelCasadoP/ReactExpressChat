@@ -34,24 +34,4 @@ function App() {
 
 export default App;
 
-/*
-return (
-  <>
-    { login ? 
-      (     <Login 
-                sendId={setId} 
-                sendPass={setPass} 
-                setLogin={setLogin} 
-            />
-      ) : (
 
-            <Messages 
-                id={readId} 
-                pass={readPass}
-                setLogin={setLogin}
-            />  
-      )
-    }
-  </>
-);
-*/

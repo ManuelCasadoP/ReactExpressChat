@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 code {
@@ -15,19 +19,31 @@ code {
 .root {
   display: flex;
   flex-direction: column;
-  
-
 }
 
-.container {
+.containerLogin {
   display: flex;
+  align-items: center;
   flex-direction: column;
   background-color:lightsteelblue;
-  margin: 8px;
+  width: 500px;
+  height: 260px;
+  margin: auto;
   padding: 8px;
-  align-items: center;
-  justify-content: center;
   border-radius: 8px;
+  
+}
+
+.containerMessages {
+  display: flex;
+  height:fit-content;
+  align-items: center;
+  flex-direction: column;
+  background-color:lightsteelblue;
+  margin: auto;
+  padding: 8px;
+  border-radius: 8px;
+  
 }
 
 .label {
@@ -48,11 +64,23 @@ code {
 }
 
 .divMessages {
-  background-color: white;
+  /*display: flex;*/
+  background-color: rgb(245, 219, 165);
+  margin: 20px;
   padding: 10px; 
-  min-width: 60%;  
-  max-height:min-content;
+  width: 600px; 
+  min-height: 500px; 
+  height:fit-content;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
 
+.divContainerMessage{
+  background-color: white;
+  width: fit-content;
+  padding: 10px; 
+  border: 1px solid #000;
+  border-radius: 4px;
 }
 
 .inputMessage {
