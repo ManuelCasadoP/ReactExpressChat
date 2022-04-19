@@ -90,7 +90,13 @@ const Messages = ({id, pass, setLogin})=>{
                     }   
 
                     const htmlMessages = htmlGetMessages.map(
-                        (msg,idx) => <p key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}<hr/></p>
+                        (msg,idx) => {
+                            if (true) {
+                                return <p className="divContainerMessage otherMessages" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}</p>
+                            } else {
+                                return <p className="divContainerMessage myMessage" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}<hr/></p>
+                            }
+                        }
                     )
 
                     setMessages(htmlMessages); 
@@ -111,9 +117,7 @@ const Messages = ({id, pass, setLogin})=>{
             <h1>Respuesta GET /Messages/:</h1>
             {/*<textarea className="textarea" value={messages} cols="180" rows="50" disabled></textarea>*/}
             <div className="divMessages">
-                <div className="divContainerMessage">
                     {messages}
-                </div>
             </div>
             
 

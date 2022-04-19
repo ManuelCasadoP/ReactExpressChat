@@ -73,6 +73,7 @@ code {
   height:fit-content;
   border: 1px solid #000;
   border-radius: 4px;
+  overflow: auto;
 }
 
 .divContainerMessage{
@@ -81,6 +82,14 @@ code {
   padding: 10px; 
   border: 1px solid #000;
   border-radius: 4px;
+}
+
+.myMessage {
+  background-color: rgb(124, 233, 124);;
+}
+
+.otherMessages {
+  background-color: whitesmoke;
 }
 
 .inputMessage {
