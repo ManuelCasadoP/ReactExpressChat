@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 
-const SendMessages=({id, pass})=>{
+const SendMessages=({id, pass, setLogin})=>{
 
     const [ sendMessage, setSendMessage ] = useState ("");
 
@@ -51,7 +51,11 @@ const SendMessages=({id, pass})=>{
     );
     const responseData = await response.json();
     return responseData;
-}
+    }
+
+    function switchOffButtonHandler(){
+        setLogin(true);
+    }
 
     return (
 
@@ -60,6 +64,7 @@ const SendMessages=({id, pass})=>{
             <input type="text" className="inputMessage" onChange={getMessage} value={sendMessage} />
             {/*<textarea className="textarea" cols="60" rows="10" onChange={getMessage} value={sendMessage}></textarea>*/}
             <button type="button" className="button" onClick={sendMessageButtonHandler}>Enviar</button>
+            <button type="button" className='switchOffButton' onClick={switchOffButtonHandler}>Off</button>
         </div>
 
     );

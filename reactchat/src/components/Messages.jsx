@@ -106,10 +106,11 @@ const Messages = ({id, pass, setLogin})=>{
                 }); 
         }); 
     }
-
+    /*
     function switchOffButtonHandler(){
         setLogin(true);
     }
+    */
     
     return (
 
@@ -120,9 +121,8 @@ const Messages = ({id, pass, setLogin})=>{
                     {messages}
             </div>
             
-
-            <SendMessages id={id} pass={pass}/>
-            <button type="button" className='switchOffButton' onClick={switchOffButtonHandler}>Off</button>
+            <SendMessages id={id} pass={pass} setLogin={setLogin}/>
+            {/*<button type="button" className='switchOffButton' onClick={switchOffButtonHandler}>Off</button>*/}
         </div>
 
     )

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 
 
-const Login = ({sendId, sendPass, setLogin})=>{
+const Login = ({sendUser, sendPass, sendId, setLogin})=>{
 
     const [ user, keepUser ] = useState("");
     const [ pass, keepPass ] = useState("");
@@ -16,11 +16,13 @@ const Login = ({sendId, sendPass, setLogin})=>{
         console.log("Enviando datos de alta de usuario...");
         console.log(user + " , " +  pass);
         setUserPost(urlLogin, userData);
+        sendUser(user);
    }
 
     // Capturamos el usuario introducido en el input
     function setUser(event){
         keepUser(event.target.value);
+        
     }
 
     // Capturamos la password introducida en el input
