@@ -92,9 +92,9 @@ const Messages = ({user, id, pass, setLogin})=>{
                     const htmlMessages = htmlGetMessages.map(
                         (msg,idx) => {
                             if (user !== msg.source) {
-                                return <p className="divContainerMessage otherMessages" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}</p>
+                                return <p className="divContainerMessage otherMessages" key={idx}><b>{msg.source}</b><br/>{msg.content}<br/><span className="time">{msg.time}</span></p>
                             } else {
-                                return <p className="divContainerMessage myMessage" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}</p>
+                                return <p className="divContainerMessage myMessage" key={idx}><b>{msg.source}</b><br/>{msg.content}<br/><span className="time">{msg.time}</span></p>
                             }
                         }
                     )

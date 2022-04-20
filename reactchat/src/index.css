@@ -101,6 +101,12 @@ code {
   word-wrap: break-word;
 }
 
+.time {
+  font-size: 0.6rem;
+  text-align: right;
+  margin-top: 2px;
+}
+
 .inputMessage {
   border-radius: 8px;
   font-size: 1.5em;
