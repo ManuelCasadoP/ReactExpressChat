@@ -1,13 +1,14 @@
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
   height: 100vh;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
@@ -64,32 +65,48 @@ code {
 }
 
 .divMessages {
-  /*display: flex;*/
+  display: flex;
+  flex-direction: column;
   background-color: rgb(245, 219, 165);
   margin: 20px;
   padding: 10px; 
-  width: 600px; 
-  min-height: 500px; 
-  height:fit-content;
+  /*min-width: 600px;*/
+  max-width: 70%;
+  min-height: 525px; 
+  max-height: 525px;
+  
   border: 1px solid #000;
   border-radius: 4px;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
+
+
 .divContainerMessage{
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  width: fit-content;
+  width: 100wh; /* ultima actualizacion */
   padding: 10px; 
   border: 1px solid #000;
   border-radius: 4px;
 }
 
 .myMessage {
-  background-color: rgb(124, 233, 124);;
+  background-color: rgb(124, 233, 124);
+  align-self: flex-end;
+  max-width: 50%;
+  height: fit-content;
+  word-wrap: break-word;
 }
 
 .otherMessages {
   background-color: whitesmoke;
+  align-self: flex-start;
+  max-width: 50%;
+  height: fit-content;
+  word-wrap: break-word;
 }
 
 .inputMessage {
@@ -120,4 +137,8 @@ code {
 
 h1,h2 {
   margin: 2px;
+}
+
+p {
+  margin: 4px;
 }

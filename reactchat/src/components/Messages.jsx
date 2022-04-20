@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import SendMessages from "./SendMessage";
 
-const Messages = ({id, pass, setLogin})=>{
+const Messages = ({user, id, pass, setLogin})=>{
 
     const [ messages, setMessages ] = useState ("");
     //const [ users, getUsers] = useState ("");
@@ -91,10 +91,10 @@ const Messages = ({id, pass, setLogin})=>{
 
                     const htmlMessages = htmlGetMessages.map(
                         (msg,idx) => {
-                            if (true) {
+                            if (user !== msg.source) {
                                 return <p className="divContainerMessage otherMessages" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}</p>
                             } else {
-                                return <p className="divContainerMessage myMessage" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}<hr/></p>
+                                return <p className="divContainerMessage myMessage" key={idx}>Time: {msg.time}<br/>user: {msg.source}<br/> msg: {msg.content}</p>
                             }
                         }
                     )
@@ -116,49 +116,16 @@ const Messages = ({id, pass, setLogin})=>{
 
         <div className="containerMessages">
             <h1>Respuesta GET /Messages/:</h1>
-            {/*<textarea className="textarea" value={messages} cols="180" rows="50" disabled></textarea>*/}
+            
             <div className="divMessages">
                     {messages}
             </div>
             
             <SendMessages id={id} pass={pass} setLogin={setLogin}/>
-            {/*<button type="button" className='switchOffButton' onClick={switchOffButtonHandler}>Off</button>*/}
+           
         </div>
 
     )
 }
 
 export default Messages;
-
-/*
-function getMessageHandler(id, pass){
-    const urlLogin="https://web-develop-react-express-chat.herokuapp.com/messages/"
-    const urlLogin2="https://web-develop-react-express-chat.herokuapp.com/users/"
-    const token = authToken(id, pass);
-    authGet(urlLogin, token).then(data => { 
-        const htmlGetMessages = data 
-
-            noAuthGetUsers(urlLogin2).then(data =>{ 
-                const usersList = data 
-
-                for (let i = 0; i < htmlGetMessages.length; i++) {
-                    htmlGetMessages[i].time = new Date(htmlGetMessages[i].time).toLocaleString();
-                }
-
-                
-                for (let i = 0; i < htmlGetMessages.length; i++) {
-                    let user = usersList.find(item=>item.id === htmlGetMessages[i].source);
-                    htmlGetMessages[i].source = user.name;
-                    //break;
-                }   
-
-                setMessages(JSON.stringify(htmlGetMessages)); 
-
-            }); 
-    }); 
-   
-    console.log("Leyendo Mensajes....");
-    console.log(htmlGetMessages);
-    console.log(token);
-}
-*/

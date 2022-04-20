@@ -7,6 +7,7 @@ import Messages from './components/Messages';
 
 function App() {
 
+    const [readUser, setUser] = useState("");
     const [readId, setId] = useState("");
     const [readPass, setPass] = useState("");
     const [login, setLogin ] = useState(true);
@@ -15,6 +16,7 @@ function App() {
       <>
         { login ? 
           (     <Login 
+                    sendUser={setUser}
                     sendId={setId} 
                     sendPass={setPass} 
                     setLogin={setLogin} 
@@ -22,6 +24,7 @@ function App() {
           ) : (
     
                 <Messages 
+                    user={readUser}
                     id={readId} 
                     pass={readPass}
                     setLogin={setLogin}
