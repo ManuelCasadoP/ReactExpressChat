@@ -70,7 +70,7 @@ const Login = ({sendUser, sendPass, sendId, setLogin})=>{
             <input type="text" className='input' name="user" value={user} onChange={setUser}></input>
             <label htmlFor="pass" className='label'>Password:</label>
             <input type="password" className='input' name="pass" value={pass} onChange={setPass}></input><br></br>
-            <button type="button" className='button' onClick={getUserDataButtonHandler}>Enviar</button>
+            <button type="button" className='loginButton' onClick={getUserDataButtonHandler}>Enviar</button>
         </div>
 
     )
