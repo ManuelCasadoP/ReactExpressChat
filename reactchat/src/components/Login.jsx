@@ -67,9 +67,9 @@ const Login = ({sendUser, sendPass, sendId, setLogin})=>{
         <div className="containerLogin">
             <h1>Alta Usuario</h1>
             <label htmlFor="user" className='label'>Usuario:</label>
-            <input type="text" className='input' name="user" value={user} onChange={setUser}></input>
+            <input type="text" className='input' name="user" placeholder="usuario..." value={user} onChange={setUser}></input>
             <label htmlFor="pass" className='label'>Password:</label>
-            <input type="password" className='input' name="pass" value={pass} onChange={setPass}></input><br></br>
+            <input type="password" className='input' name="pass" placeholder="contraseña..." value={pass} onChange={setPass}></input><br></br>
             <button type="button" className='loginButton' onClick={getUserDataButtonHandler}>Enviar</button>
         </div>
 
